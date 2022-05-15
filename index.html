@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <p class="text">
+            
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla laoreet sed odio a tempor. Pellentesque cursus, dui eget posuere rutrum, massa mi maximus mi, molestie molestie tortor enim in justo. Proin eleifend urna ut ornare facilisis. Nam euismod sagittis aliquam. Vestibulum id arcu non nisl pulvinar euismod a at elit. Donec dolor augue, faucibus id justo imperdiet, aliquet vehicula lectus. Pellentesque id efficitur diam. Quisque convallis venenatis velit tristique luctus.
+
+Vivamus sollicitudin mauris in nisl dictum, nec pulvinar metus rhoncus. Quisque viverra ullamcorper magna et rutrum. In odio risus, mattis vel iaculis vel, lobortis in dui. Donec magna dolor, pellentesque quis tempor vitae, semper vitae odio. Pellentesque at justo porttitor, efficitur lectus nec, viverra ante. Mauris ac lectus ut augue luctus scelerisque in eu ante. Morbi lectus velit, dignissim eget nibh facilisis, mollis elementum nisl.
+
+Fusce at condimentum justo. Sed nunc lorem, porttitor at euismod viverra, tristique ut eros. Etiam metus purus, elementum eget est vel, dictum accumsan lorem. Morbi bibendum venenatis mi convallis vehicula. Proin hendrerit arcu ipsum, eu tempus nunc facilisis nec. Morbi sed tincidunt est, vel vehicula odio. Nam at rhoncus massa. Suspendisse potenti. In euismod elementum nunc, sed pulvinar purus efficitur vel. In vulputate est ut risus bibendum scelerisque. Proin bibendum enim in convallis suscipit. Cras fringilla, arcu quis tincidunt mollis, tellus nibh varius metus, nec dapibus tortor dui fringilla nisl. Mauris a posuere eros. Curabitur vel egestas tortor, vel molestie dolor.
+
+Morbi est urna, ultricies et placerat nec, tempor sit amet ipsum. Curabitur euismod quis urna at feugiat. Quisque lacinia eros in massa blandit hendrerit. Maecenas dignissim at ex ac aliquam. Duis erat justo, suscipit sed lectus a, semper ornare tellus. Vestibulum maximus felis nec turpis tincidunt pellentesque. In vulputate at neque sed tempus.
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque eu magna euismod, aliquet leo at, pellentesque ipsum. Donec sagittis semper congue. Pellentesque elementum justo pretium, aliquet magna eu, congue justo. Nullam semper mauris sed bibendum suscipit. Nam ut est et tellus commodo fringilla eu ut nibh. Fusce ac interdum nunc.
+        </p>
+    </section> 
+</body>
+
+<script src="anime.min.js"></script>
+
+<script>
+    //Now, split text into letters.
+    const text = document.querySelector('.text');
+    text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
+    const animation = anime.timeline({
+        targets : '.text span',
+        easing  :  'easeInOutExpo',
+        loop    :   true,
+    });
+    
+    animation
+        .add({
+            rotate : function(){
+                return anime.random(-360, 360)
+            },
+            translateX : function(){
+                return anime.random(-500, 500)
+            },
+            translateY : function(){
+                return anime.random(-500, 500)
+            },
+            duration : 8000,
+            delay : anime.stagger(20),
+        })
+
+        .add({
+            rotate : 0,
+            translateX : 0,
+            translateY : 0,
+            duration : 5000,
+            delay : anime.stagger(20),
+        })
+</script>
+</html>
